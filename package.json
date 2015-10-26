@@ -1,0 +1,38 @@
+{
+  "name": "minimal-syntax-dark",
+  "author": {
+    "name": "David van Gemeren",
+    "email": "david@burodepeper.nl"
+  },
+  "theme": "syntax",
+  "main": "./lib/main.coffee",
+  "version": "0.0.0",
+  "description": "Dark version of minimal-syntax",
+  "keywords": [
+    "syntax",
+    "theme",
+    "minimal",
+    "dark",
+    "colorful",
+    "bright",
+    "high contrast",
+    "web",
+    "webdev",
+    "web development",
+    "html",
+    "php",
+    "coffeescript",
+    "javascript",
+    "css",
+    "scss",
+    "sass",
+    "mysql",
+    "markdown"
+  ],
+  "repository": "https://github.com/burodepeper/minimal-syntax-dark",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

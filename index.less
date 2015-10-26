@@ -1,0 +1,49 @@
+// NOTE
+// The names of the colors don't match the value, because this is a feeble
+// attempt at creating a dark version of minimal-syntax.
+
+// Basic colors (dark)
+@white:         mix(#000000, #33333f, 25%);
+@black:         #ccc;
+@blue:          #ffdd00;
+@yellow:        #00cc99;
+@aqua:          #ff6600;
+@red:           #ff00cc;
+@green:         mix(#0099ff, @yellow);
+@orange:        darken(#0099ff, 10%);
+
+// Derivatives (dark)
+@grey:          mix(@black, @white);
+@grey-light:    mix(@grey, @white, 25%);
+@blue-darker:   darken(@blue, 10%);
+@blue-dark:     darken(@blue-darker, 10%);
+@green-dark:    lighten(@green, 10%);
+@orange-darker: lighten(@orange, 10%);
+
+// Here we go!
+atom-text-editor,
+:host {
+
+  background: @white;
+  color: @black;
+
+  // Imports
+  @import "styles/editor.less";
+  @import "styles/defaults.less";
+  @import "styles/shared.less";
+
+  // Languages
+  @import "styles/languages/apache.less";
+  @import "styles/languages/ass.less";
+  @import "styles/languages/coffee.less";
+  @import "styles/languages/css.less";
+  @import "styles/languages/gfm.less";
+  @import "styles/languages/html.less";
+  @import "styles/languages/javascript.less";
+  @import "styles/languages/json.less";
+  @import "styles/languages/markdown.less";
+  @import "styles/languages/php.less";
+  @import "styles/languages/sql.less";
+  @import "styles/languages/yaml.less";
+
+}

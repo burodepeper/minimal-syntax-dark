@@ -1,0 +1,89 @@
+.php {
+
+  &.storage.modifier.extends, // extends
+  &.storage.modifier.abstract, // abstract
+  &.basic-functions, // define()
+  &.function.support,
+  &.function.math, // floor()
+  &.function.file, // realpath(), file_exists(), is_writable()
+  &.function.dir, // opendir(), readdir()
+  &.function.info, // ini_get()
+  &.function.array, // array_merge()
+  &.storage.type, // parent, (int)
+  &.storage.type.class, // class
+  &.storage.type.function, // function
+  &.support.construct, // array(), isset(), empty()
+  &.class.variable // Validate::$type ($type)
+  {
+    color: @blue;
+  }
+
+  &.classobj,
+  &.storage.modifier, // public, private, global
+  &.new, // new
+  &.session, // session_start()
+  &.import, // require(), include()
+  &.network, // header()
+  &.support.network, // header()
+  &.control, // if, then, else, return, exit(), foreach, switch, case, default, break, die, while
+  &.construct // echo
+  {
+    color: @blue-darker;
+  }
+
+  &.inherited-class,
+  &.class.name
+  {
+    color: @blue-dark;
+  }
+
+  &.string,
+  &.string-contents {
+    color: @green;
+  }
+
+  &.constant {
+    color: @red;
+  }
+
+  &.control,
+  &.classobj,
+  &.network,
+  &.import
+  {
+    font-weight: bold;
+  }
+
+  &.keyword.operator.string
+  {
+    opacity: 0.667;
+  }
+
+  .operator {
+    &.arithmetic, // +, *
+    &.assignment, // =
+    &.comparison, // >
+    &.increment-decrement, // ++, --
+    &.key, // =>
+    &.class,
+    &.string,
+    {
+      color:@blue-darker;
+    }
+
+    &.class { // ->, ::
+      font-weight: normal;
+    }
+
+    &.logical // ||, as
+    {
+      color: @blue-darker;
+    }
+  }
+
+  &.arguments {
+    &:not(.argument) {
+      color: fade(@black, 66%);
+    }
+  }
+}

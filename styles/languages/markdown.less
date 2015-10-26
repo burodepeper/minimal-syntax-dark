@@ -1,0 +1,165 @@
+.md {
+  &.heading {
+    color: @blue;
+
+    &.empty {
+      .punctuation {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.hr {
+    color: fade(@blue-dark, 50%);
+  }
+
+  &.quote {
+    color: @green;
+  }
+
+  &.link {
+    &.text {
+      color: @green;
+    }
+    &.destination {
+      color: @blue;
+
+      .uri {
+        text-decoration: underline;
+      }
+    }
+    &.title {
+      color: @blue-darker;
+      font-style: italic;
+    }
+  }
+
+  &.reference {
+    color: @aqua;
+  }
+
+  &.list {
+    &.task {
+      &.completed {
+        color: @black;
+        opacity: 0.333;
+
+        .code {
+          background: transparent;
+          color: @black;
+        }
+
+        .punctuation {
+          opacity: 1;
+        }
+
+        .todo,
+        .review {
+          color: inherit;
+        }
+
+        .fixme {
+          background: transparent;
+          outline: none;
+          color: inherit;
+        }
+      }
+    }
+    &.unordered,
+    &.ordered
+    {
+      color: @black;
+
+      > .punctuation {
+        color: @blue-dark;
+      }
+    }
+    &.empty {
+      .punctuation {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.code {
+    color: @grey;
+
+    &:not(.fenced) {
+      background: fade(@grey, 10%);
+    }
+
+    &.fenced {
+      &.info {
+        color: @blue-darker;
+      }
+    }
+  }
+
+  // NOTE disabled
+  // &.indented-code {
+  //   background: fade(@grey, 10%);
+  // }
+
+  &.constant {
+    color: @red;
+  }
+
+  &.punctuation {
+    opacity: 0.5;
+    background: inherit;
+  }
+
+  &.emphasis {
+    font-style: italic;
+
+    &:not(.strong) {
+      opacity: 0.667;
+    }
+
+    &:not(.strong) .strong {
+      font-style: italic;
+    }
+  }
+
+  &.strong {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  &.table {
+    color: @blue-dark;
+
+    .alignment {
+      opacity: 1;
+    }
+
+    > .punctuation {
+      color: @blue-darker;
+      opacity: 0.333;
+    }
+  }
+
+  &.strike {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  &.critic {
+    &.addition {
+      color: @green;
+    }
+    &.deletion {
+      color: @red;
+    }
+    &.highlight {
+      background: fade(@yellow, 50%);
+    }
+    &.comment {
+      color: @orange;
+      font-style: normal;
+    }
+    &.substitution {
+      color: @blue;
+    }
+  }
+}
