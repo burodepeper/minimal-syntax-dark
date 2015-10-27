@@ -1,133 +1,136 @@
-.comment
-{
-  color: @orange;
-}
+.source {
 
-.operator {
-  color: @black;
+  color: @syntax-fg;
 
-  &.logical {
-    color: @black;
-    // font-weight: bold;
+  .comment
+  {
+    color: @syntax-comment;
   }
-}
 
-.support,
-.storage,
-.modifier,
-.tag,
-.keyword,
-.function-call,
-.function,
-.object,
-.control
-{
-  color: @blue;
-}
+  .operator,
+  .operator.logical,
+  {
+    color: @syntax-fg;
+  }
 
-.constant,
-.unit,
-.numeric
-{
-  color: @red;
-}
+  .support,
+  .storage,
+  .modifier,
+  .tag,
+  .keyword,
+  .function-call,
+  .function,
+  .object,
+  .control
+  {
+    color: @syntax-code;
+  }
 
-.attribute, // css
-.variable
-{
-  color: @aqua;
-}
+  .constant,
+  .unit,
+  .numeric
+  {
+    color: @syntax-constant;
+  }
 
-.url,
-.string
-{
-  color: @green;
-}
+  .attribute, // css
+  .variable
+  {
+    color: @syntax-accent;
+  }
 
-.at-rule, // less/scss
-.pseudo-class,
-.pseudo-element,
-.sgml,
-.support.class, // coffee: Math
-.terminator
-{
-  color: @blue-darker;
-}
+  .url,
+  .string
+  {
+    color: @syntax-content;
+  }
 
-.sgml,
-.sgml .punctuation
-{
-  color: @red;
-}
+  .at-rule, // less/scss
+  .pseudo-class,
+  .pseudo-element,
+  .sgml,
+  .support.class, // coffee: Math
+  .terminator
+  {
+    color: @syntax-code-darker;
+  }
 
-.invalid
-{
-  background: @red;
-  color: @white;
-}
+  .sgml,
+  .sgml .punctuation
+  {
+    color: @syntax-constant;
+  }
 
-// .meta {} // ???
+  .invalid
+  {
+    background: @syntax-constant;
+    color: @syntax-bg;
+  }
 
-.at-rule .keyword, // less/scss
-.doctype,
-// .constant,
-.heading,
-.bold,
-.name,
-.magic,
-.class
-{
-  font-weight: bold;
-}
+  // .meta {} // ???
 
-.comment,
-.italic
-{
-  font-style: italic;
-}
-
-.terminator,
-.punctuation
-{
-  opacity: 0.667;
-}
-
-.punctuation {
-  color: inherit;
-  font-weight: normal;
-}
-
-.markup {
-  &.heading {
+  .at-rule .keyword, // less/scss
+  .doctype,
+  // .constant,
+  .heading,
+  .bold,
+  .name,
+  .magic,
+  .class
+  {
     font-weight: bold;
-    color: @blue;
   }
-  &.inserted,
-  &.addition,
-  &.quote {
-    color: @green;
+
+  .comment,
+  .italic
+  {
+    font-style: italic;
   }
-  &.deletion {
-    color: @red;
+
+  .terminator,
+  .punctuation
+  {
+    opacity: 0.667;
   }
-  &.changed {
-    color: @blue;
+
+  .punctuation {
+    color: inherit;
+    font-weight: normal;
   }
-  &.list {
-    color: @blue-dark;
-    &.completed {
-      opacity: 0.333;
+
+  .markup {
+    &.heading {
+      font-weight: bold;
+      color: @syntax-code;
+    }
+    &.inserted,
+    &.addition,
+    &.quote {
+      color: @syntax-content;
+    }
+    &.deletion {
+      color: @syntax-constant;
+    }
+    &.changed {
+      color: @syntax-code;
+    }
+    &.list {
+      color: @syntax-code-dark;
+      &.completed {
+        opacity: 0.333;
+      }
+    }
+    &.underline {
+      text-decoration: underline;
+    }
+    &.raw {
+      background: fade(@syntax-fg, 10%);
+      color: @syntax-neutral;
     }
   }
-  &.underline {
-    text-decoration: underline;
-  }
-  &.raw {
-    background: fade(@black, 10%);
-    color: @grey;
-  }
-}
 
-.uri {
-  color: @blue;
+  .uri {
+    color: @syntax-code;
+  }
+
 }

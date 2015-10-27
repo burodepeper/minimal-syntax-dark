@@ -1,6 +1,4 @@
-.comment {
-  color: @orange;
-}
+// ---------- language-todo ----------
 
 .text.plain,
 .text.md,
@@ -14,7 +12,6 @@
     &.nb,
     &.note {
       color: inherit;
-      // text-decoration: underline;
       border-bottom: 1px solid;
     }
 
@@ -24,13 +21,13 @@
     &.todo,
     &.review,
     &.hack {
-      color: @red;
+      color: @syntax-constant;
     }
 
     &.fixme {
-      outline: 2px solid @red;
-      background: @red;
-      color: @white;
+      outline: 2px solid @syntax-constant;
+      background: @syntax-constant;
+      color: @syntax-bg;
     }
   }
 }
@@ -40,11 +37,11 @@
 .embedded {
   &.begin,
   &.end {
-    color: @black;
+    color: @syntax-fg;
   }
 
   &.line {
-    background-color: fade(@black, 5%);
+    background-color: fade(@syntax-fg, 5%);
 
     .begin,
     .end {
@@ -58,10 +55,4 @@
       opacity: 0.667;
     }
   }
-}
-
-// ---------- source ----------
-
-.source {
-  color: @black;
 }
