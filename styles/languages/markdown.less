@@ -11,7 +11,7 @@
     }
 
     &.hr {
-      color: fade(@syntax-code-dark, 50%);
+      color: @syntax-code-dark;
     }
 
     &.quote {
@@ -51,7 +51,8 @@
           }
 
           .punctuation {
-            opacity: 1;
+            // opacity: 1;
+            color: inherit;
           }
 
           .todo,
@@ -66,13 +67,16 @@
           }
         }
       }
+      &.definition {
+        color: @syntax-code-darker;
+      }
       &.unordered,
       &.ordered
       {
         color: @syntax-fg;
 
         > .punctuation {
-          color: @syntax-code-dark;
+          color: @syntax-code-darker;
         }
       }
       &.empty {
@@ -131,7 +135,7 @@
     }
 
     &.table {
-      color: @syntax-code-dark;
+      color: @syntax-code-darker;
 
       .alignment {
         opacity: 1;
@@ -139,7 +143,7 @@
 
       > .punctuation {
         color: @syntax-code-darker;
-        opacity: 0.333;
+        // opacity: 0.333;
       }
     }
 
@@ -164,6 +168,26 @@
       }
       &.substitution {
         color: @syntax-code;
+      }
+    }
+
+    &.special-attributes {
+      color: @syntax-neutral;
+      font-weight: normal;
+
+      .punctuation {
+        opacity: 1;
+      }
+
+      .other {
+        color: inherit;
+      }
+
+      .id,
+      .class
+      {
+        color: @syntax-constant;
+        font-weight: normal;
       }
     }
   }
