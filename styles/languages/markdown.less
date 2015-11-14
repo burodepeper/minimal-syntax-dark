@@ -174,17 +174,19 @@
     &.special-attributes {
       color: @syntax-neutral;
       font-weight: normal;
+    }
+
+    &.special.attribute {
+      &.other {
+        color: inherit;
+      }
 
       .punctuation {
         opacity: 1;
       }
 
-      .other {
-        color: inherit;
-      }
-
-      .id,
-      .class
+      &.id,
+      &.class
       {
         color: @syntax-constant;
         font-weight: normal;
