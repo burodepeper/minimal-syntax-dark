@@ -1,0 +1,57 @@
+.c {
+  &.meta {
+    color: @syntax-fg;
+
+    &.parens {
+      color: @syntax-accent;
+    }
+  }
+
+  &.preprocessor,
+  &.include,
+  &.function,
+  &.initialization .variable,
+  {
+    color: @syntax-code;
+  }
+
+  &.string {
+    color: @syntax-content;
+  }
+
+  &.storage {
+    &.modifier { // static, const
+      color: @syntax-code-darker;
+    }
+
+    &.type { // char, int, struct
+      color: @syntax-code-darker;
+    }
+  }
+
+  &.entity {
+    &.name { // function-name
+
+    }
+  }
+
+  &.keyword {
+    // font-weight: bold;
+  }
+
+  &.control {
+    font-weight: bold;
+  }
+
+  &.import {
+    font-weight: normal;
+  }
+
+
+
+  &.punctuation {
+    color: inherit;
+    opacity: 0.5;
+    font-weight: normal;
+  }
+}
