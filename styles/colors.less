@@ -1,12 +1,14 @@
 // Basic colors (dark)
 @syntax-bg:             mix(#000000, #33333f, 25%);       // white
-@syntax-fg:             #cccccc;                          // black
+@syntax-fg-pure:        #fff;                             // black
+@syntax-fg:             darken(@syntax-fg-pure, 20%);    // black
 @syntax-code:           #ffdd00;                          // blue
 @syntax-highlight:      #00cc99;                          // yellow
 @syntax-accent:         #ff6600;                          // aqua
 @syntax-constant:       #ff00cc;                          // red
 @syntax-content:        mix(#0099ff, @syntax-highlight);  // green
-@syntax-comment:        darken(#0099ff, 10%);             // orange
+// @syntax-comment:        darken(#0099ff, 10%);             // orange
+@syntax-comment:        mix(@syntax-fg, @syntax-bg);
 
 // Derivatives (dark)
 @syntax-neutral:        mix(@syntax-fg, @syntax-bg);

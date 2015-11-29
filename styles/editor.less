@@ -129,7 +129,8 @@ atom-text-editor,
 
       &.selection {
         .region {
-          background: fade(average(@syntax-fg, @syntax-accent), 10%);
+          // background: fade(average(@syntax-fg, @syntax-accent), 10%);
+          background: fade(average(@syntax-fg, @syntax-content), 10%);
         }
       }
 
@@ -161,7 +162,8 @@ atom-text-editor,
   }
 
   .cursor-line {
-    background-color: fade(average(@syntax-fg, @syntax-accent), 5%);
+    // background-color: fade(average(@syntax-fg, @syntax-accent), 5%);
+    background: fade(average(@syntax-fg, @syntax-content), 5%);
   }
 
 }
