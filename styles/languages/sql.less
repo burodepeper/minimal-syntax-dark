@@ -5,6 +5,29 @@
 
   &.keyword.operator {
     font-weight: normal;
+    color: @syntax-code;
+  }
+
+  &.storage.type {
+    color: @syntax-code-darker;
+  }
+
+  &.meta.alter,
+  &.meta.create {
     color: @syntax-content;
+
+    .entity.name {
+      color: inherit;
+    }
+  }
+
+  &.constant {
+    &.other {
+      font-weight: normal;
+    }
+    &.database-name,
+    &.table-name {
+      color: @syntax-content;
+    }
   }
 }
