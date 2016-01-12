@@ -5,16 +5,17 @@
 
   &.keyword.operator {
     font-weight: normal;
-    color: @syntax-code;
+    // color: @content;
+    color: @syntax;
   }
 
   &.storage.type {
-    color: @syntax-code-darker;
+    color: @syntax-alt;
   }
 
   &.meta.alter,
   &.meta.create {
-    color: @syntax-content;
+    color: @content;
 
     .entity.name {
       color: inherit;
@@ -27,7 +28,7 @@
     }
     &.database-name,
     &.table-name {
-      color: @syntax-content;
+      color: @content;
     }
   }
 }

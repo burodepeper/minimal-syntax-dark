@@ -1,0 +1,28 @@
+.text.plain,
+.text.md,
+.source.gfm,
+.comment {
+  .type {
+    // font-style: normal;
+
+    &.changed,
+    &.idea,
+    &.nb,
+    &.note,
+    &.xxx,
+    &.hack,
+    &.review,
+    &.todo,
+    &.review,
+    &.hack {
+      color: @comment;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    &.todo,
+    &.fixme {
+      color: @constant;
+    }
+  }
+}

@@ -1,18 +1,20 @@
 atom-text-editor,
 :host {
 
-  background: @syntax-bg;
-  color: @syntax-fg;
+  background: @background;
+  color: @text;
 
   &::shadow {
     .wrap-guide {
-      background-color: fade(@syntax-fg, 10%);
+      background-color: fade(@text, 10%);
     }
 
     atom-text-editor-minimap {
+      overflow: visible; // hope this doesn't break anything; was originally hidden
+
       &::shadow {
         .minimap-visible-area {
-          background-color: fade(@syntax-neutral, 25%);
+          background-color: fade(@neutral, 25%);
           opacity: 1;
 
           &:after {
@@ -24,25 +26,20 @@ atom-text-editor,
         }
       }
     }
-
-    // NOTE
-    // removes subpixel AA from tiles;
-    // results in richer colors, but is not meant to be as such
-    // .tile {
-    //   opacity: 0.999;
-    // }
-
   }
 
   &.is-focused {
+    background: @background;
+    color: @text;
+
     &::shadow {
       atom-text-editor-minimap {
         &::shadow {
           .minimap-visible-area {
-            background-color: fade(@syntax-accent, 25%);
+            background-color: fade(@variable, 25%);
 
             &:after {
-              background: @syntax-accent;
+              background: @variable;
             }
           }
         }
@@ -52,16 +49,16 @@ atom-text-editor,
 
 
   .indent-guide {
-    color: fade(@syntax-fg, 10%);
+    color: fade(@text, 10%);
   }
 
   .invisible-character {
-    color: fade(@syntax-fg, 25%);
+    color: fade(@text, 25%);
   }
 
   .gutter {
     background: transparent;
-    color: fade(@syntax-fg, 50%);
+    color: fade(@text, 50%);
 
     .custom-decorations {
       background: transparent !important;
@@ -69,19 +66,19 @@ atom-text-editor,
 
     .line-number {
       &.cursor-line {
-        color: fade(@syntax-fg, 50%);
+        color: fade(@text, 50%);
       }
 
       &.cursor-line-no-selection {
-        color: fade(@syntax-fg, 100%);
+        color: fade(@text, 100%);
       }
 
       &.git-line-added {
-        color: @syntax-content;
+        color: @content;
       }
 
       &.git-line-modified {
-        color: @syntax-comment;
+        color: @comment;
       }
     }
 
@@ -89,16 +86,16 @@ atom-text-editor,
 
       .line-number.git-line-added:before {
         opacity: 0.5;
-        color: @syntax-content !important;
+        color: @content !important;
       }
 
       .line-number.git-line-modified:before {
         opacity: 0.5;
-        color: @syntax-comment !important;
+        color: @comment !important;
       }
 
       .line-number.git-line-removed:before {
-        color: @syntax-constant !important;
+        color: @constant !important;
       }
     }
 
@@ -108,15 +105,15 @@ atom-text-editor,
   .gutter .line-number:after,
   .fold-marker:after
   {
-    color: @syntax-constant;
+    color: @constant;
   }
 
   .invisible {
-    color: fade(@syntax-fg, 25%);
+    color: fade(@text, 25%);
   }
 
   .cursor {
-    color: average(@syntax-fg, @syntax-accent);
+    color: average(@text, @variable);
     transition: opacity 0.333s;
     border-left-width: 2px;
   }
@@ -124,20 +121,19 @@ atom-text-editor,
   .highlights {
     .highlight {
       .region {
-        background: fade(@syntax-fg, 10%);
+        background: fade(@text, 10%);
       }
 
       &.selection {
         .region {
-          // background: fade(average(@syntax-fg, @syntax-accent), 10%);
-          background: fade(average(@syntax-fg, @syntax-content), 10%);
+          background: fade(average(@text, @variable), 10%);
         }
       }
 
       &.bracket-matcher {
         .region {
           border: none;
-          background: fade(@syntax-highlight, 50%);
+          background: fade(@highlight, 50%);
           display: inline-block;
         }
       }
@@ -145,25 +141,48 @@ atom-text-editor,
       &.current-result,
       &.find-result {
         .region {
-          background: fade(@syntax-highlight, 50%);
+          background: fade(@highlight, 50%);
           border: none;
           border-radius: 0;
-          // outline: 2px solid fade(@syntax-highlight, 50%);
+          box-shadow: 3px 3px 0 fade(@text, 25%);
         }
       }
 
       &.current-result {
         .region {
-          background: fade(@syntax-highlight, 50%);
-          // outline: 2px solid @syntax-highlight;
+          background: fade(@highlight, 50%);
+          box-shadow: 3px 3px 0 fade(@text, 50%);
         }
       }
     }
   }
 
   .cursor-line {
-    // background-color: fade(average(@syntax-fg, @syntax-accent), 5%);
-    background: fade(average(@syntax-fg, @syntax-content), 5%);
+    background-color: fade(average(@text, @variable), 5%);
+  }
+}
+
+// ---------- embedded styles ----------
+
+.embedded {
+  &.begin,
+  &.end {
+    color: @text;
   }
 
+  &.line {
+    background-color: fade(@text, 5%);
+
+    .begin,
+    .end {
+      opacity: 0.667;
+    }
+  }
+
+  &.block {
+    .php.meta.begin,
+    .php.meta.end {
+      opacity: 1;
+    }
+  }
 }

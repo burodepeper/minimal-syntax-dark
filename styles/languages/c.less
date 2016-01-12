@@ -1,9 +1,9 @@
 .c {
   &.meta {
-    color: @syntax-fg;
+    color: @text;
 
     &.parens {
-      color: @syntax-accent;
+      color: @variable;
     }
   }
 
@@ -12,20 +12,20 @@
   &.function,
   &.initialization .variable,
   {
-    color: @syntax-code;
+    color: @syntax;
   }
 
   &.string {
-    color: @syntax-content;
+    color: @content;
   }
 
   &.storage {
     &.modifier { // static, const
-      color: @syntax-code-darker;
+      color: @syntax-alt;
     }
 
     &.type { // char, int, struct
-      color: @syntax-code-darker;
+      color: @syntax-alt;
     }
   }
 

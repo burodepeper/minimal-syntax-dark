@@ -3,7 +3,7 @@
 
   &.attribute
   {
-    color: @syntax-accent;
+    color: @variable;
   }
 
   &.keyword.unit.other,
@@ -13,7 +13,7 @@
 
   &.class,
   &.id {
-    color: @syntax-content;
+    color: @content;
 
     .punctuation.definition.entity { // # in #id
       color: inherit;
@@ -32,37 +32,36 @@
     font-weight: bold;
   }
 
-  &.pseudo-element,
-  &.pseudo-class
-  {
-    font-style: italic;
-  }
+  // &.pseudo-element,
+  // &.pseudo-class
+  // {
+  //   font-style: italic;
+  // }
 
   &.function,
   .mathematical-symbols,
-  .property-value .property-value
-  {
-    color: @syntax-code;
+  &.punctuation.definition.entity, // &
+  .property-value .property-value {
+    color: @syntax;
   }
 
-  &.property-value {
-    color: @syntax-fg;
+  .property-value {
+    color: @text;
   }
 
   // &.function,
   &.tag,
-  &.punctuation.definition.entity, // &
   &.reference {
-    color: @syntax-code-darker;
+    color: @syntax-alt;
   }
 
   &.important {
-    color: @syntax-constant;
+    color: @constant;
   }
   // Maybe in the future...
   // &.property-name {
   //   &.vendor-prefix {
-  //     color: fade(@syntax-code, 66%);
+  //     color: fade(@syntax, 66%);
   //     font-style: italic;
   //   }
   // }
@@ -75,7 +74,7 @@
   // &.keyword,
   .html // atom-text-editor
   {
-    color: @syntax-code-darker;
+    color: @syntax-alt;
     font-weight: bold;
   }
 }

@@ -1,25 +1,52 @@
 .coffee {
   &.embedded.source {
-    color: @syntax-accent;
+    color: @variable;
   }
 
   .punctuation.separator,
   &.comma,
   // &.keyword.operator // '=', but also 'and', stupid parser
   {
-    color: @syntax-fg;
+    color: @text;
   }
 
   // &.meta.brace {
-  //   color: @syntax-code-dark;
+  //   color: @syntax-alt;
   // }
 
   &.keyword.new {
-    color: @syntax-code;
+    color: @syntax;
   }
 
   &.delimited,
   &.comma {
     opacity: 0.5
+  }
+
+  &.entity.other.inherited-class {
+    color: @syntax-alt;
+  }
+
+  &.entity.name {
+    &.type.class, // class {Class}
+    &.type.instance { // new {Instance}
+      color: @syntax-alt;
+    }
+
+    &.function {
+      font-weight: normal;
+
+      .meta.function.coffee & {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.string.script {
+    background: fade(@constant, 10%);
+
+    .punctuation {
+      color: @constant;
+    }
   }
 }

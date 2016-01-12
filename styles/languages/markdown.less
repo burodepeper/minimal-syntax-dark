@@ -1,74 +1,92 @@
 .text.md {
   .md {
     &.heading {
-      color: @syntax-code;
+      color: @syntax;
 
       &.empty {
         .punctuation {
           opacity: 1;
         }
       }
+
+      .emphasis {
+        opacity: 1;
+        font-weight: normal;
+      }
     }
 
     &.hr {
-      color: @syntax-code-dark;
+      // color: fade(@syntax-alt, 50%);
+      color: @constant;
     }
 
     &.quote {
-      color: @syntax-content;
+      color: @content;
 
       .link.markup,
       .link.text,
       .link.image,
       .string {
-        color: @syntax-content-dark;
+        color: @content-alt;
       }
 
       .uri {
-        color: @syntax-code-darker;
+        color: @syntax-alt;
       }
     }
 
     &.link {
       &.text {
-        color: @syntax-content;
+        color: @content;
       }
       &.destination {
-        color: @syntax-code;
+        color: @syntax;
 
         .uri {
           text-decoration: underline;
         }
       }
       &.title {
-        color: @syntax-code-darker;
+        color: @syntax-alt;
         font-style: italic;
+      }
+      &.string {
+        background: fade(@content, 5%);
       }
     }
 
     &.gfm,
     &.reference {
-      color: @syntax-accent;
+      color: @variable;
+      font-weight: normal;
     }
 
     &.list {
+      > .punctuation {
+        opacity: 1;
+
+        .checkbox {
+          // opacity: 1;
+          color: @syntax-alt;
+          background: fade(@syntax-alt, 10%);
+        }
+      }
       .heading {
-        color: @syntax-code-darker;
+        color: @syntax-alt;
         // font-weight: normal;
       }
       &.task {
         &.completed {
-          color: @syntax-fg;
+          color: @text;
           opacity: 0.333;
 
           .code {
             background: transparent;
-            color: @syntax-fg;
+            color: @text;
           }
 
           .punctuation {
-            // opacity: 1;
-            color: inherit;
+            color: @text;
           }
 
           .todo,
@@ -83,48 +101,47 @@
           }
         }
       }
-      &.definition {
-        color: @syntax-code-darker;
-      }
       &.unordered,
       &.ordered
       {
-        color: @syntax-fg;
+        color: @text;
 
         > .punctuation {
-          color: @syntax-code-darker;
+          color: @syntax;
         }
       }
       &.empty {
         .punctuation {
-          opacity: 1;
+          // opacity: 1;
+          color: @syntax-alt;
         }
       }
     }
 
     &.code {
-      color: @syntax-neutral;
+      color: @neutral;
 
       &:not(.fenced) {
-        background: fade(@syntax-neutral, 10%);
+        background: fade(@neutral, 10%);
       }
 
       &.fenced {
         &.info {
-          color: @syntax-code-darker;
+          color: @syntax-alt;
         }
       }
     }
 
     // NOTE disabled
     // &.indented-code {
-    //   background: fade(@syntax-neutral, 10%);
+    //   background: fade(@neutral, 10%);
     // }
 
     &.constant {
-      color: @syntax-constant;
+      color: @constant;
       &.language {
-        color: @syntax-neutral;
+        color: @neutral;
+        font-weight: normal;
       }
     }
 
@@ -148,18 +165,20 @@
     &.strong {
       font-weight: bold;
       font-style: normal;
+      // color: @text-pure;
     }
 
     &.table {
-      color: @syntax-code-darker;
-
-      .alignment {
-        opacity: 1;
-      }
+      color: @syntax-alt;
 
       > .punctuation {
-        color: @syntax-code-darker;
-        // opacity: 0.333;
+        color: @syntax;
+        opacity: 0.5;
+
+        &.alignment {
+          color: @syntax;
+          opacity: 1;
+        }
       }
     }
 
@@ -170,26 +189,25 @@
 
     &.critic {
       &.addition {
-        color: @syntax-content;
+        color: @content;
       }
       &.deletion {
-        color: @syntax-constant;
+        color: @constant;
       }
       // &.highlight {
-      //   background: fade(@syntax-highlight, 50%);
+      //   background: fade(@highlight, 25%);
       // }
       &.comment {
-        color: @syntax-comment;
+        color: @comment;
         font-style: normal;
       }
       &.substitution {
-        color: @syntax-code;
+        color: @syntax;
       }
     }
 
     &.special-attributes {
-      color: @syntax-neutral;
-      font-weight: normal;
+      color: @neutral;
     }
 
     &.special.attribute {
@@ -197,14 +215,17 @@
         color: inherit;
       }
 
-      .punctuation {
-        opacity: 1;
-      }
-
       &.id,
       &.class
       {
-        color: @syntax-constant;
+        color: @constant;
+      }
+
+      &.id {
+        font-weight: bold;
+      }
+
+      &.class {
         font-weight: normal;
       }
     }
