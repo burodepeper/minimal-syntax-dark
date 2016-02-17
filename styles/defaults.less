@@ -1,10 +1,13 @@
-.source {
+atom-text-editor, :host {
 
   color: @text;
 
-  .comment
-  {
+  .comment {
     color: @comment;
+
+    .markup.link {
+      color: inherit;
+    }
   }
 
   .operator {
