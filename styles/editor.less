@@ -127,7 +127,7 @@ atom-text-editor,
       &.selection {
         .region {
           // background: fade(average(@text, @variable), 25%);
-          background: fade(@content, 25%);
+          background: fade(@variable, 25%);
         }
       }
 
@@ -159,7 +159,8 @@ atom-text-editor,
   }
 
   .cursor-line {
-    background-color: fade(average(@text, @variable), 5%);
+    // background-color: fade(average(@text, @variable), 5%);
+    background-color: fade(@variable, 10%);
   }
 
   .highlight-column {
