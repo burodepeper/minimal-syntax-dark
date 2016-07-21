@@ -6,7 +6,7 @@
   },
   "theme": "syntax",
   "main": "./lib/main.coffee",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Dark version of minimal-syntax",
   "keywords": [
     "syntax",
