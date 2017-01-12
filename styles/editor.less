@@ -1,10 +1,22 @@
-atom-text-editor,
-:host {
+atom-text-editor {
 
   background: @background;
   color: @text;
 
-  &::shadow {
+  .indent-guide-improved {
+    background-color: fade(@text, 10%);
+
+    &.indent-guide-stack {
+      background-color: fade(@text, 10%);
+
+      &.indent-guide-active {
+        background-color: fade(@variable, 33%);
+        width: 2px;
+      }
+    }
+  }
+
+  // &::shadow {
     .wrap-guide {
       background-color: fade(@text, 10%);
     }
@@ -12,7 +24,7 @@ atom-text-editor,
     atom-text-editor-minimap {
       overflow: visible; // hope this doesn't break anything; was originally hidden
 
-      &::shadow {
+      // &::shadow {
         .minimap-visible-area {
           background-color: fade(@neutral, 25%);
           opacity: 1;
@@ -24,17 +36,17 @@ atom-text-editor,
             width: 4px;
           }
         }
-      }
+      // }
     }
-  }
+  // }
 
   &.is-focused {
     background: @background;
     color: @text;
 
-    &::shadow {
+    // &::shadow {
       atom-text-editor-minimap {
-        &::shadow {
+        // &::shadow {
           .minimap-visible-area {
             background-color: fade(@variable, 25%);
 
@@ -42,11 +54,30 @@ atom-text-editor,
               background: @variable;
             }
           }
-        }
+        // }
       }
+    // }
+  }
+
+  .line,
+  .line-number {
+    &.code-block {
+      background: fade(@text, 5%);
+    }
+
+    &.table-block {
+      background: fade(@syntax, 5%);
     }
   }
 
+  .fold-marker {
+    background: @highlight;
+    &:after {
+      color: @text !important;
+      padding: 0 0.5em;
+      // line-height: inherit;
+    }
+  }
 
   .indent-guide {
     color: fade(@text, 10%);
@@ -67,6 +98,17 @@ atom-text-editor,
     .line-number {
       &.cursor-line {
         color: fade(@text, 50%);
+        // background: transparent;
+        // box-shadow: none;
+        // background-color: fade(@variable, 10%);
+
+        &.git-line-added {
+          background: fade(average(@content, @variable), 15%);
+        }
+
+        &.git-line-modified {
+          background: fade(average(@comment, @variable), 15%);
+        }
       }
 
       &.cursor-line-no-selection {
@@ -75,10 +117,38 @@ atom-text-editor,
 
       &.git-line-added {
         color: @content;
+        background: fade(@content, 10%);
+        border-left: 0;
+        padding-left: 0.5em;
+        &.cursor-line {
+          background: @content;
+          color: @background;
+        }
       }
 
       &.git-line-modified {
         color: @comment;
+        background: fade(@comment, 15%);
+        border-left: 0;
+        padding-left: 0.5em;
+        &.cursor-line {
+          background: @comment;
+          color: @background;
+        }
+      }
+
+      &.git-line-removed {
+        &:before {
+          color: @constant;
+          bottom: -6px;
+          border-width: 6px;
+          margin-top: -6px;
+        }
+      }
+
+      .icon-right {
+        opacity: 1;
+        color: inherit;
       }
     }
 
@@ -105,7 +175,10 @@ atom-text-editor,
   .gutter .line-number:after,
   .fold-marker:after
   {
-    color: @constant;
+    // color: @constant;
+    background: @highlight;
+    color: @text;
+    opacity: 1;
   }
 
   .invisible {
@@ -115,7 +188,7 @@ atom-text-editor,
   .cursor {
     color: average(@text, @variable);
     transition: opacity 0.333s;
-    border-left-width: 2px;
+    border-left-width: 3px;
   }
 
   .highlights {
@@ -161,6 +234,8 @@ atom-text-editor,
   .cursor-line {
     // background-color: fade(average(@text, @variable), 5%);
     background-color: fade(@variable, 10%);
+    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+    // box-shadow: inset 0 0 6px fade(@variable, 25%);
   }
 
   .highlight-column {
@@ -170,24 +245,24 @@ atom-text-editor,
 
 // ---------- embedded styles ----------
 
-.embedded {
-  &.begin,
-  &.end {
+.syntax--embedded {
+  &.syntax--begin,
+  &.syntax--end {
     color: @text;
   }
 
-  &.line {
+  &.syntax--line {
     background-color: fade(@text, 5%);
 
-    .begin,
-    .end {
+    .syntax--begin,
+    .syntax--end {
       opacity: 0.667;
     }
   }
 
-  &.block {
-    .php.meta.begin,
-    .php.meta.end {
+  &.syntax--block {
+    .syntax--php.syntax--meta.syntax--begin,
+    .syntax--php.syntax--meta.syntax--end {
       opacity: 1;
     }
   }
