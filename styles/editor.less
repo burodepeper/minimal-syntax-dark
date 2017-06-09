@@ -16,47 +16,39 @@ atom-text-editor {
     }
   }
 
-  // &::shadow {
-    .wrap-guide {
-      background-color: fade(@text, 10%);
+  .wrap-guide {
+    background-color: fade(@text, 10%);
+  }
+
+  atom-text-editor-minimap {
+    overflow: visible; // hope this doesn't break anything; was originally hidden
+
+    .minimap-visible-area {
+      background-color: fade(@neutral, 25%);
+      opacity: 1;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0;
+        width: 4px;
+      }
     }
-
-    atom-text-editor-minimap {
-      overflow: visible; // hope this doesn't break anything; was originally hidden
-
-      // &::shadow {
-        .minimap-visible-area {
-          background-color: fade(@neutral, 25%);
-          opacity: 1;
-
-          &:after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0;
-            width: 4px;
-          }
-        }
-      // }
-    }
-  // }
+  }
 
   &.is-focused {
     background: @background;
     color: @text;
 
-    // &::shadow {
-      atom-text-editor-minimap {
-        // &::shadow {
-          .minimap-visible-area {
-            background-color: fade(@variable, 25%);
+    atom-text-editor-minimap {
+      .minimap-visible-area {
+        background-color: fade(@variable, 25%);
 
-            &:after {
-              background: @variable;
-            }
-          }
-        // }
+        &:after {
+          background: @variable;
+        }
       }
-    // }
+    }
   }
 
   .line,
@@ -68,6 +60,10 @@ atom-text-editor {
     &.table-block {
       background: fade(@syntax, 5%);
     }
+
+    &.cursor-line {
+      background: fade(@variable, 10%);
+    }
   }
 
   .fold-marker {
@@ -75,7 +71,6 @@ atom-text-editor {
     &:after {
       color: @text !important;
       padding: 0 0.5em;
-      // line-height: inherit;
     }
   }
 
@@ -98,26 +93,22 @@ atom-text-editor {
     .line-number {
       &.cursor-line {
         color: fade(@text, 50%);
-        // background: transparent;
-        // box-shadow: none;
-        // background-color: fade(@variable, 10%);
-
-        &.git-line-added {
-          background: fade(average(@content, @variable), 15%);
-        }
-
-        &.git-line-modified {
-          background: fade(average(@comment, @variable), 15%);
-        }
       }
 
       &.cursor-line-no-selection {
         color: fade(@text, 100%);
       }
 
+      &.folded {
+        background: fade(@highlight, 50%);
+        &.cursor-line {
+          background: @highlight;
+        }
+      }
+
       &.git-line-added {
         color: @content;
-        background: fade(@content, 10%);
+        background: fade(@content, 20%);
         border-left: 0;
         padding-left: 0.5em;
         &.cursor-line {
@@ -127,19 +118,19 @@ atom-text-editor {
       }
 
       &.git-line-modified {
-        color: @comment;
-        background: fade(@comment, 15%);
+        color: @variable;
+        background: fade(@variable, 20%);
         border-left: 0;
         padding-left: 0.5em;
         &.cursor-line {
-          background: @comment;
+          background: @variable;
           color: @background;
         }
       }
 
       &.git-line-removed {
         &:before {
-          color: @constant;
+          border-left-color: @constant;
           bottom: -6px;
           border-width: 6px;
           margin-top: -6px;
@@ -153,32 +144,22 @@ atom-text-editor {
     }
 
     &.git-diff-icon {
+      .line-number {
+        &.git-line-added:before {
+          opacity: 0.5;
+          color: @content !important;
+        }
 
-      .line-number.git-line-added:before {
-        opacity: 0.5;
-        color: @content !important;
-      }
+        &.git-line-modified:before {
+          opacity: 0.5;
+          color: @comment !important;
+        }
 
-      .line-number.git-line-modified:before {
-        opacity: 0.5;
-        color: @comment !important;
-      }
-
-      .line-number.git-line-removed:before {
-        color: @constant !important;
+        &.git-line-removed:before {
+          color: @constant !important;
+        }
       }
     }
-
-  }
-
-  .gutter .line-number.folded,
-  .gutter .line-number:after,
-  .fold-marker:after
-  {
-    // color: @constant;
-    background: @highlight;
-    color: @text;
-    opacity: 1;
   }
 
   .invisible {
@@ -195,11 +176,15 @@ atom-text-editor {
     .highlight {
       .region {
         background: fade(@text, 10%);
+
+        &.misspelling {
+          background: fade(@variable, 10%);
+          border-bottom-color: @constant;
+        }
       }
 
       &.selection {
         .region {
-          // background: fade(average(@text, @variable), 25%);
           background: fade(@variable, 25%);
         }
       }
@@ -229,13 +214,6 @@ atom-text-editor {
         }
       }
     }
-  }
-
-  .cursor-line {
-    // background-color: fade(average(@text, @variable), 5%);
-    background-color: fade(@variable, 10%);
-    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
-    // box-shadow: inset 0 0 6px fade(@variable, 25%);
   }
 
   .highlight-column {

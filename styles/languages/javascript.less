@@ -29,8 +29,28 @@
     }
   }
 
+  &.syntax--keyword.syntax--operator.syntax--typeof,
+  &.syntax--keyword.syntax--operator.syntax--instanceof,
+  &.syntax--function:not(.syntax--parameter) {
+    font-weight: bold;
+  }
+
+  // &.syntax--keyword.syntax--operator.syntax--new,
+  &.syntax--keyword.syntax--operator.syntax--typeof,
+  &.syntax--keyword.syntax--operator.syntax--instanceof,
+  &.syntax--dom {
+    color: @syntax;
+  }
+
+  &.syntax--keyword.syntax--operator.syntax--new,
+  &.syntax--meta.syntax--parameters {
+    font-weight: normal;
+  }
+
+  &.syntax--keyword.syntax--operator.syntax--new,
   &.syntax--instance {
     color: @syntax-alt;
+    // color: @text;
   }
 
   &.syntax--constant.syntax--boolean {
@@ -54,16 +74,12 @@
       // color: @text;
       color: @syntax-alt;
 
-      &.syntax--new { // new
-        color: @syntax;
-        font-weight: normal;
-      }
-
       &.syntax--comparison, // ==
       &.syntax--increment, // ++
       &.syntax--decrement, // --
       &.syntax--logical { // &&
-        color: @syntax;
+        // color: @syntax-alt;
+        // color: @text;
       }
     }
 
@@ -93,5 +109,33 @@
 
   &.syntax--entity.syntax--name.syntax--type.syntax--instance { // new {ClassName}
     // font-weight: normal;
+  }
+
+  &.syntax--string {
+    & > .syntax--embedded.syntax--js {
+      // background: fade(@variable, 10%);
+      color: @syntax;
+
+      & > .syntax--punctuation {
+        color: @variable;
+      }
+    }
+  }
+
+  &.syntax--arguments {
+    color: @text;
+  }
+
+  &.syntax--meta {
+    &.syntax--brace {
+      color: @syntax;
+    }
+  }
+
+  &.syntax--function {
+    &.syntax--bracket {
+      color: @syntax;
+      font-weight: normal;
+    }
   }
 }

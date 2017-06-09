@@ -5,14 +5,19 @@ atom-text-editor {
   .syntax--comment {
     color: @comment;
 
+    .syntax--punctuation {
+      opacity: 0.5;
+    }
+
     .syntax--markup.syntax--link {
       color: inherit;
     }
 
     .syntax--doc {
       &.syntax--tag {
-        font-weight: bold;
-        color: @constant;
+        // font-weight: bold;
+        color: @comment;
+        background: fade(@comment, 15%);
 
         .syntax--punctuation {
           font-weight: normal;
@@ -22,8 +27,10 @@ atom-text-editor {
 
     .syntax--jsdoc,
     .syntax--phpdoc {
-      color: @constant;
-      font-weight: bold;
+      // color: @constant;
+      // font-weight: bold;
+      color: @comment;
+      background: fade(@comment, 15%);
     }
   }
 

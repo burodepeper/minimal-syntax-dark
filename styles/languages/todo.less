@@ -5,6 +5,7 @@
   .syntax--type {
     // font-style: normal;
 
+    &.syntax--bug,
     &.syntax--changed,
     &.syntax--fixme,
     &.syntax--idea,
@@ -16,7 +17,7 @@
     &.syntax--todo,
     &.syntax--review,
     &.syntax--hack {
-      color: @constant;
+      color: mix(@comment, @text, 75%);
       font-weight: bold;
     }
   }
