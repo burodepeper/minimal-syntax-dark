@@ -46,8 +46,8 @@
     font-weight: bold;
   }
 
-  .syntax--function,
-  &.syntax--punctuation.syntax--definition.syntax--entity, // &
+  // .syntax--function,
+  // &.syntax--punctuation.syntax--definition.syntax--entity, // &
   &.syntax--id {
     font-weight: bold;
   }
@@ -60,11 +60,30 @@
 
   &.syntax--tag,
   &.syntax--reference,
-  &.syntax--function,
+  // &.syntax--function,
   .syntax--mathematical-symbols,
-  &.syntax--punctuation.syntax--definition.syntax--entity, // &
+  // &.syntax--punctuation.syntax--definition.syntax--entity, // &
   .syntax--property-value .syntax--property-value {
     color: @syntax;
+  }
+
+  &.syntax--property-name {
+    color: @syntax-alt;
+  }
+
+    // &.syntax--property-value {
+    //   .syntax--property-name {
+    //     color: @syntax;
+    //   }
+    // }
+
+  // &
+  &.syntax--parent-selector,
+  &.syntax--pseudo-class,
+  &.syntax--function,
+  &.syntax--tag.syntax--reference {
+    color: @variable;
+    font-weight: normal;
   }
 
   .syntax--property-value {
