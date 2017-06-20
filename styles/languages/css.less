@@ -8,17 +8,21 @@
 
   .syntax--at-rule
   {
-    color: @syntax-alt;
+    color: @syntax;
     // background: fade(@syntax-alt, 10%);
     // text-decoration: underline;
+    .syntax--name {
+      color: @constant;
+      font-weight: normal;
+    }
   }
 
-  .syntax--at-rule .syntax--function
-  {
-    // color: inherit;
-    font-weight: normal;
-    color: @syntax-alt;
-  }
+  // .syntax--at-rule .syntax--function
+  // {
+  //   // color: inherit;
+  //   font-weight: normal;
+  //   color: @syntax-alt;
+  // }
 
   &.syntax--keyword.syntax--unit.syntax--other,
   .syntax--attribute-name {

@@ -6,8 +6,9 @@
 @highlight:      #00cc99;
 @content:        mix(#0099ff, @highlight);;
 @variable:       #ff6600;
+@variable-alt:   mix(@variable, @syntax);
 @constant:       #ff00cc;
-@comment:        mix(@text, @background);
+@comment:        mix(@text, @background, 40);
 
 // Derivatives (dark)
 @neutral:        mix(@text, @background);
