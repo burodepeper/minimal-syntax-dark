@@ -11,6 +11,10 @@
     //   color: @syntax-alt;
     // }
 
+    &.syntax--other {
+      font-weight: normal;
+    }
+
     &.syntax--support, // x, y, prototype :(
     &.syntax--dom { // width, height
       color: @text;
@@ -94,6 +98,16 @@
   }
 
   &.syntax--meta {
+    &.syntax--export {
+      .syntax--control.syntax--keyword {
+        color: @syntax-alt;
+      }
+    }
+    // &.syntax--class {
+    //   .syntax--class.syntax--name {
+    //     color: @text-alt;
+    //   }
+    // }
     &.syntax--comma {
       color: @text;
     }

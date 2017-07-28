@@ -10,7 +10,7 @@ atom-text-editor {
       background-color: fade(@text, 10%);
 
       &.indent-guide-active {
-        background-color: fade(@variable, 33%);
+        background-color: fade(@highlight, 25%);
         width: 2px;
       }
     }
@@ -62,14 +62,15 @@ atom-text-editor {
     }
 
     &.cursor-line {
-      background: fade(@variable, 10%);
+      background: fade(@highlight, 15%);
     }
   }
 
   .fold-marker {
     background: @highlight;
     &:after {
-      color: @text !important;
+      // color: @text !important;
+      color: @background !important;
       padding: 0 0.5em;
     }
   }
@@ -96,13 +97,15 @@ atom-text-editor {
       }
 
       &.cursor-line-no-selection {
-        color: fade(@text, 100%);
+        color: fade(@highlight, 67%);
       }
 
       &.folded {
-        background: fade(@highlight, 50%);
+        background: fade(@highlight, 33%);
+        color: fade(@highlight, 75%);
         &.cursor-line {
           background: @highlight;
+          color: @background;
         }
       }
 
@@ -185,7 +188,8 @@ atom-text-editor {
 
       &.selection {
         .region {
-          background: fade(@variable, 25%);
+          // background: fade(@variable, 25%);
+          background: fade(@highlight, 25%);
         }
       }
 
@@ -200,24 +204,25 @@ atom-text-editor {
       &.current-result,
       &.find-result {
         .region {
-          background: fade(@highlight, 50%);
+          background: fade(@highlight, 33%);
           border: none;
           border-radius: 0;
-          box-shadow: 3px 3px 0 fade(@text, 25%);
+          box-shadow: none;
         }
       }
 
       &.current-result {
         .region {
-          background: fade(@highlight, 50%);
-          box-shadow: 3px 3px 0 fade(@text, 50%);
+          background: fade(@content, 33%);
+          border-top: 2px solid fade(@constant, 67%);
+          border-bottom: 2px solid fade(@constant, 67%);
         }
       }
     }
   }
 
   .highlight-column {
-    background-color: fade(average(@text, @variable), 33%) !important;
+    background-color: fade(@highlight, 25%) !important;
   }
 }
 
