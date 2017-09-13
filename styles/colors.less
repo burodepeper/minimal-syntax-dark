@@ -6,7 +6,8 @@
 @highlight:      #00cc99;
 @content:        mix(#0099ff, @highlight);;
 @variable:       #ff6600;
-@variable-alt:   mix(@variable, @syntax);
+// @variable-alt:   mix(@variable, @syntax);
+@variable-alt:   mix(@syntax, @content, 33%);
 @constant:       #ff00cc;
 // @comment:        mix(@text, @background, 40);
 @comment:        fade(@text, 35%);

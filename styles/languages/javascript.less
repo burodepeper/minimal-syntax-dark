@@ -1,8 +1,9 @@
 .syntax--js {
   .syntax--variable {
     &.syntax--language {
-      color: @syntax-alt; // this
+      // color: @syntax-alt; // this
       // color: @highlight;
+      color: @variable-alt;
     }
   }
 
@@ -35,6 +36,11 @@
 
     &.syntax--dom.syntax--variable {
       color: @variable;
+    }
+
+    &.syntax--class {
+      color: @text;
+      font-weight: bold;
     }
   }
 
@@ -72,11 +78,11 @@
     }
   }
 
-  &.syntax--support.syntax--class, // event, window
-  {
-    font-weight: normal;
-    color: @syntax;
-  }
+  // &.syntax--support.syntax--class, // event, window
+  // {
+  //   font-weight: normal;
+  //   color: @syntax;
+  // }
 
   &.syntax--keyword {
     &.syntax--operator { // :, =, +, -
@@ -89,6 +95,7 @@
       &.syntax--logical { // &&
         // color: @syntax-alt;
         // color: @text;
+        color: @syntax;
       }
     }
 

@@ -1,5 +1,32 @@
 .syntax--php {
 
+  &.syntax--class {
+    font-weight: normal;
+    &.syntax--name,
+    &.syntax--support {
+      font-weight: bold;
+    }
+  }
+
+  &.syntax--inherited-class {
+    // font-weight: bold;
+    color: @syntax-alt;
+  }
+
+  &.syntax--variable.syntax--language.syntax--this {
+    color: @variable-alt;
+  }
+
+  &.syntax--function-call {
+    .syntax--variable {
+      font-weight: normal;
+    }
+  }
+
+  &.syntax--storage-type.syntax--definition {
+    color: @constant;
+  }
+
   &.syntax--storage.syntax--modifier.syntax--extends, // extends
   &.syntax--storage.syntax--modifier.syntax--abstract, // abstract
   &.syntax--basic-functions, // define()
@@ -29,15 +56,16 @@
   &.syntax--network, // header()
   &.syntax--support.syntax--network, // header()
   &.syntax--construct, // echo
-  &.syntax--keyword.syntax--exception, // try, catch, finally
+  // &.syntax--keyword.syntax--exception, // try, catch, finally
   &.syntax--storage.syntax--modifier, // public, private, global
   {
     color: @syntax-alt;
   }
 
-  &.syntax--inherited-class,
+  // &.syntax--inherited-class,
   &.syntax--support.syntax--class,
-  &.syntax--class.syntax--name,
+  &.syntax--keyword.syntax--exception, // try, catch, finally, throw
+  // &.syntax--class.syntax--name,
   &.syntax--control, // if, then, else, return, exit(), foreach, switch, case, default, break, die, while
   {
     // color: @syntax-alt;
