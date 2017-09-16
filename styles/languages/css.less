@@ -82,6 +82,7 @@
   // &
   &.syntax--parent-selector,
   &.syntax--pseudo-class,
+  &.syntax--pseudo-element,
   &.syntax--function,
   &.syntax--tag.syntax--reference {
     color: @variable;
@@ -108,8 +109,11 @@
   //     font-style: italic;
   //   }
   // }
-}
 
+  .syntax--entity.syntax--name.syntax--function {
+    color: @variable-alt;
+  }
+}
 
 
 .syntax--less {
