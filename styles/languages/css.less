@@ -13,6 +13,16 @@
       color: @constant;
       font-weight: normal;
     }
+    & > .syntax--constant {
+      color: @variable-alt;
+      font-weight: normal;
+    }
+  }
+
+  .syntax--constant {
+    & > .syntax--unit {
+      opacity: 0.667;
+    }
   }
 
   // .syntax--at-rule .syntax--function
@@ -28,8 +38,18 @@
   }
 
   &.syntax--class,
-  &.syntax--id {
+  // &.syntax--id
+  {
     color: @content;
+
+    .syntax--punctuation.syntax--definition.syntax--entity { // # in #id
+      color: inherit;
+    }
+  }
+
+  // &.syntax--class,
+  &.syntax--id {
+    color: @variable-alt;
 
     .syntax--punctuation.syntax--definition.syntax--entity { // # in #id
       color: inherit;
